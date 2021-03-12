@@ -442,11 +442,6 @@ extension AFError {
         guard case let .downloadedFileMoveFailed(_, _, destination) = self else { return nil }
         return destination
     }
-
-    /// The download resume data of any underlying network error. Only produced by `DownloadRequest`s.
-    public var downloadResumeData: Data? {
-        (underlyingError as? URLError)?.userInfo[NSURLSessionDownloadTaskResumeData] as? Data
-    }
 }
 
 extension AFError.ParameterEncodingFailureReason {
